@@ -32,12 +32,18 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @EnableWebSocketMessageBroker
 public class CollabPaintWebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
-    @Override
+   @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        //config.enableSimpleBroker("/topic");
-    	config.enableStompBrokerRelay("/topic/").setRelayHost("192.168.56.101").setRelayPort(61613);
-        config.setApplicationDestinationPrefixes("/app");        
-    }
+        
+        config.enableStompBrokerRelay("/topic/").setRelayHost("buck.rmq.cloudamqp.com").setRelayPort(61613).
+                setClientLogin("qswneqti").
+                setClientPasscode("l3ER8jdXMrgXAVx6IvgEbHi4xyx3KzBI").
+                setSystemLogin("qswneqti").
+                setSystemPasscode("l3ER8jdXMrgXAVx6IvgEbHi4xyx3KzBI").
+                setVirtualHost("qswneqti");
+                
+        config.setApplicationDestinationPrefixes("/app");
+}
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {

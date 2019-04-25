@@ -17,7 +17,7 @@ Then configure the file nginx to use a load balancer machine, check its proper f
 
 ## Part lll
 
-
+In this part the new load balancer is CloudAMQP and we made some configurations in the webconfig.java and we tried the functionality of the applicationicon all this is coded in the branch 'cloud-based-mom'.
 
 ## Part lV
 
